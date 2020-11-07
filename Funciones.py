@@ -1,3 +1,8 @@
+#Elaborado por: Leandro Camacho Aguilar y Celina Madrigal Murillo
+#Fecha de Creación: 5/11/2020 10:00pm 
+#Fecha de última Modificación: 6/11/2020 10:12pm
+#Versión: 3.8.5
+#Importacion de librerias 
 import re
 import names
 import random
