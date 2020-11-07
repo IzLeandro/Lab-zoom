@@ -44,12 +44,10 @@ def llenarMatriz(matriz):
     reacciones = ["sn", "ap", "lv"]
     for pantalla in matriz:
         for fila in pantalla:
-            cont = 0
-            for participante in fila:
+            for i in range(len(fila)):
                 nombre = [[names.get_first_name(), names.get_last_name(), names.get_last_name()], random.choice(audio),
                           random.choice(presencia), random.choice(reacciones)]
-                fila[cont] = nombre
-                cont+=1
+                fila[i] = nombre
     return matriz
 def reactivarAudio(matrizConCar):
     """Funcion: Recorre la matriz buscando el nombre de una persona con la intención de convertir su audio en True.
@@ -68,12 +66,12 @@ def reactivarAudio(matrizConCar):
                 if fila[0][0].upper()==nombre.upper():
                     print(fila[0][0].upper())
                     if fila[1]==True:
-                        print("No se puede activar el audio porque ya està activo.")
+                        print("No se puede activar el audio porque ya está activo.")
                         return matrizConCar
                     elif fila[1]==False:
                         fila[1]=True
                         print("El usuario se encuentra en la pantalla:",varPantalla,"En la columna:",varColumna,"y en la fila:",varFila,".")
-                        print("Su audio està siendo activado...")
+                        print("Su audio está siendo activado...")
                         return matrizConCar
     print("No se encontrò la persona que buscaba, volviendo al menu...")
     return matrizConCar

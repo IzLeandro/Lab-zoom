@@ -5,7 +5,7 @@
 #Importacion de librerias 
 import re
 import time
-from Funciones import *
+from Funciones import validarNumParticipantes,crearMatriz,llenarMatriz,reactivarAudio,renombrar,mostrarTotalParticipante,mostrarParticipantesConVideo,buscarUnParticipante
 #Funciones
 def numParticipantes():
     """
@@ -30,9 +30,9 @@ def menu1():
     participantes=numParticipantes()       
     if type(participantes)==int:
         if participantes==1:
-            print('Hay',participantes,'participante')
+            print('a) Hay',participantes,'participante')
         else:
-            print('Hay',participantes,'participantes')
+            print('a) Hay',participantes,'participantes')
     else:
         print(participantes)
         menu1()
@@ -44,14 +44,14 @@ def menu1():
     for i in matriz:
         filas+=len(i)
     if filas==1:
-        print('Hay',filas,'fila')
+        print('b) Hay',filas,'fila')
     else:
-         print('Hay',filas,'filas')
+         print('b) Hay',filas,'filas')
     if len(matriz)==1:
-        print('Hay',len(matriz),'pantalla')
+        print('c) Hay',len(matriz),'pantalla')
         print()
     else:
-         print('Hay',len(matriz),'pantallas')
+         print('c) Hay',len(matriz),'pantallas')
          print()
     print(matriz)
     return matriz
@@ -71,24 +71,19 @@ def menu():
     if opcion=='1':
         reactivarAudio(matriz)
         input("Presione enter para continuar...")
-        menu()
-    if opcion=='2':
+    elif opcion=='2':
         renombrar(matriz)
         input("Presione enter para continuar...")
-        menu()
-    if opcion=='3':
+    elif opcion=='3':
         mostrarTotalParticipante(matriz)
         input("Presione enter para continuar...")
-        menu()
-    if opcion=='4':
-        participanteVideo(matriz)
+    elif opcion=='4':
+        mostrarParticipantesConVideo(matriz)
         input("Presione enter para continuar...")
-        menu()
-    if opcion=='5':
+    elif opcion=='5':
         buscarUnParticipante(matriz)
         input("Presione enter para continuar...")
-        menu()
-    if opcion=='6':
+    elif opcion=='6':
         print('El anfitrión ha eliminado su participación de esta reunión. Saliendo en')
         print('5')
         time.sleep(5)
@@ -100,10 +95,11 @@ def menu():
         time.sleep(5)
         print('1')
         time.sleep(5)
-        return ''
+        return ""
     else:
         print('Digite una opción válida')
         input("Presione enter para continuar...")
         menu()
         return ''
+    menu()
 menu()
