@@ -65,8 +65,8 @@ def reactivarAudio(matrizConCar):
             varFila=0
             for fila in columna:
                 varFila+=1
-                print(fila[0][0].upper())
                 if fila[0][0].upper()==nombre.upper():
+                    print(fila[0][0].upper())
                     if fila[1]==True:
                         print("No se puede activar el audio porque ya està activo.")
                         return matrizConCar
@@ -85,6 +85,7 @@ def renombrar(matrizConCar):
     apellido1=input("Dijite su primer apellido: ")
     apellido2=input("Dijite su segundo apellido: ")
     varPantalla=0
+    cont=0
     for pantalla in matrizConCar:
         varPantalla+=1
         varColumna=0
@@ -116,7 +117,7 @@ def mostrarTotalParticipante(matrizConCar):
             varFila=0
             for fila in columna:
                 varFila+=1
-                print("pantalla nº: ",varPantalla)
+                print("Pantalla nº: ",varPantalla)
                 print("Fila Nº: ", varFila)
                 print("Columna Nº: ",varColumna)
                 print("Nombre: ",fila[0][0],fila[0][1],fila[0][2])
@@ -157,7 +158,7 @@ def buscarUnParticipante(matrizConCar):
             for fila in columna:
                 varFila+=1
                 if participanteContiene(fila[0],entrada):
-                    print("pantalla nº: ",varPantalla)
+                    print("Pantalla nº: ",varPantalla)
                     print("Fila Nº: ", varFila)
                     print("Columna Nº: ",varColumna)
                     print("Nombre: ",fila[0][0],fila[0][1],fila[0][2])
