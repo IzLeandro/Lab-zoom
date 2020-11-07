@@ -2,6 +2,9 @@ import re
 import names
 import random
 def crearMatriz(numParticipantes):
+    """Funcion: Crea la matriz en base a la cantidad de participantes que le ingrese el usuario.
+    Entradas: Tamaño de la matriz (Cantidad de participantes).
+    Salidas: matriz lista para obtener datos."""
     matrizPequena=[]
     matriz=[]
     if numParticipantes>25:
@@ -25,12 +28,17 @@ def crearMatriz(numParticipantes):
                 numParticipantes-= numParticipantes
         matriz+=[matrizPequena]
     return matriz
-        
 def validarNumParticipantes(numParticipantes):
+    """Funcion: Valida que la cantidad de participantes sea un número.
+    Entradas: Tamaño de la matriz (Cantidad de participantes).
+    Salidas: Booleano."""
     if re.match("^\d{1,}$",numParticipantes) and numParticipantes!='0':
         return True
     return False
 def llenarMatriz(matriz):
+    """Funcion: llena la matriz creada anteriormente con nombre, apellidos, datos de audio, estado de video y reacciones.
+    Entradas: Matriz lista para obtener datos.
+    Salidas: Matriz llena con los datos."""
     audio = [True, False]
     presencia = [1, 2, 3]
     reacciones = ["sn", "ap", "lv"]
@@ -44,6 +52,9 @@ def llenarMatriz(matriz):
                 cont+=1
     return matriz
 def reactivarAudio(matrizConCar):
+    """Funcion: Recorre la matriz buscando el nombre de una persona con la intención de convertir su audio en True.
+    Entradas: Matriz llena con los datos.
+    Salidas: Matriz llena con los datos más el cambio."""
     nombre=input("Ingrese el nombre de la persona: ")
     varPantalla=0
     for pantalla in matrizConCar:
@@ -65,8 +76,11 @@ def reactivarAudio(matrizConCar):
                         print("Su audio està siendo activado...")
                         return matrizConCar
     print("No se encontrò la persona que buscaba, volviendo al menu...")
-    return ""
+    return matrizConCar
 def renombrar(matrizConCar):
+    """Funcion: Recorre la lista buscando un participante y le pide un nuevo nombre.
+    Entradas: Matriz llena con los datos.
+    Salidas: Si encuentra a la persona, la matriz llena de datos más el cambio realizado."""
     nombre=input("Ingrese el nombre de la persona: ")
     apellido1=input("Dijite su primer apellido: ")
     apellido2=input("Dijite su segundo apellido: ")
@@ -90,6 +104,9 @@ def renombrar(matrizConCar):
     print("No se encontrò la persona que buscaba, volviendo al menu...")
     return matrizConCar
 def mostrarTotalParticipante(matrizConCar):
+    """Funcion: Recorre la lista e imprime cada participante con su información.
+    Entradas: Matriz llena con los datos.
+    Salidas: """
     varPantalla=0
     for pantalla in matrizConCar:
         varPantalla+=1
@@ -105,8 +122,30 @@ def mostrarTotalParticipante(matrizConCar):
                 print("Nombre: ",fila[0][0],fila[0][1],fila[0][2])
                 print("-----------------------------------------")
     return ""
-
+def mostrarParticipantesConVideo(matrizConCar):
+    """Funcion: Recorre la lista e imprime cada participante y con su información, si tienen el video habilitado.
+    Entradas: Matriz llena con los datos.
+    Salidas: """
+    varPantalla=0
+    for pantalla in matrizConCar:
+        varPantalla+=1
+        varColumna=0
+        for columna in pantalla:
+            varColumna+=1
+            varFila=0
+            for fila in columna:
+                varFila+=1
+                if fila[2]==3:
+                    print("pantalla nº: ",varPantalla)
+                    print("Fila Nº: ", varFila)
+                    print("Columna Nº: ",varColumna)
+                    print("Nombre: ",fila[0][0],fila[0][1],fila[0][2])
+                    print("-----------------------------------------")
+    return ""
 def buscarUnParticipante(matrizConCar):
+    """Funcion: Recorre la lista e imprime cada participante que coincida con la entrada.
+    Entradas: Matriz llena con los datos.
+    Salidas: """
     entrada=input("Enviar a: ")
     varPantalla=0
     for pantalla in matrizConCar:
@@ -125,6 +164,9 @@ def buscarUnParticipante(matrizConCar):
                     print("-----------------------------------------")
     return ""
 def participanteContiene(nombreCompleto,entrada):
+    """Funcion: Comprueba si dentro de nombrecompleto existe alguna coincidencia con entrada.
+    Entradas: Matriz con un nombre y 2 apellidos, entrada tipo str
+    Salidas: Booleando indicando si existe o no coincidencia"""
     for elemento in nombreCompleto:
         if entrada.upper() in elemento.upper():
             return True
