@@ -140,7 +140,7 @@ def mostrarParticipantesConVideo(matrizConCar):
             for fila in columna:
                 varFila+=1
                 if fila[2]==3:
-                    print("pantalla nº: ",varPantalla)
+                    print("Pantalla nº: ",varPantalla)
                     print("Fila Nº: ", varFila)
                     print("Columna Nº: ",varColumna)
                     print("Nombre: ",fila[0][0],fila[0][1],fila[0][2])

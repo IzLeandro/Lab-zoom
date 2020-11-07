@@ -23,9 +23,9 @@ def numParticipantes():
     return numParti
 def menu1():
     """
-    Funcionamiento: Responsable de permitir la entrada y salidad de datos 
+    Funcionamiento: crea y llena la matriz
     Entradas: NA
-    Salidas: Booleano que indica si el año es bisiesto o no
+    Salidas: matriz llena
     """
     participantes=numParticipantes()       
     if type(participantes)==int:
@@ -57,6 +57,11 @@ def menu1():
     return matriz
 matriz=menu1()
 def menu():
+    """
+    Funcionamiento: menu principal
+    Entradas: NA
+    Salidas: NA
+    """
     print()
     print('-----ZOOM-----')
     print()
